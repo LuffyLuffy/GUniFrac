@@ -203,7 +203,7 @@ Rarefy <- function (otu.tab, depth = min(rowSums(otu.tab))){
 	otu.tab <- as.matrix(otu.tab)
 	ind <- (rowSums(otu.tab) < depth)
 	sam.discard <- rownames(otu.tab)[ind]
-	otu.tab <- otu.tab[!ind, ]
+	otu.tab <- otu.tab[!ind,,drop=F ]
 	
 	rarefy <- function(x, depth){
 		y <- sample(rep(1:length(x), x), depth)
